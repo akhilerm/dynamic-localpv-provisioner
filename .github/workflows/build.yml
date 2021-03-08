@@ -61,7 +61,6 @@ jobs:
             CI_TAG="ci"
           fi
           echo "TAG=${CI_TAG}" >> $GITHUB_ENV
-          echo "BRANCH=${BRANCH}" >> $GITHUB_ENV
 
       - name: Set Build Date
         id: date
@@ -83,7 +82,6 @@ jobs:
 
       - name: Print Tags
         run: |
-          echo "BRANCH: ${BRANCH}"
           echo "${{ steps.docker_meta.outputs.tags }}"
 
       - name: Setup QEMU
@@ -109,3 +107,4 @@ jobs:
             DBUILD_DATE=${{ steps.date.outputs.DATE }}
             DBUILD_REPO_URL=https://github.com/openebs/dynamic-localpv-provisioner
             DBUILD_SITE_URL=https://openebs.io
+            BRANCH=${BRANCH}
