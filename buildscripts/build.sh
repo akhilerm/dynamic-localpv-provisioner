@@ -26,8 +26,13 @@ DIR="$( cd -P "$( dirname "$SOURCE" )/../" && pwd )"
 # Change into that directory
 cd "$DIR"
 
+echo "directory ${PWD}"
+echo "going to get git commit"
+
 # Get the git commit
 GIT_COMMIT="$(git rev-parse HEAD)"
+
+echo "got git commit"
 
 # Set BUILDMETA based on release tag
 if [[ -n "$RELEASE_TAG" ]] && [[ $RELEASE_TAG != *"RC"* ]]; then
